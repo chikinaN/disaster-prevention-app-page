@@ -11,6 +11,8 @@ export default defineConfig({
   base: "/disaster-prevention-app-page/",
   plugins: [
     remix({
+      ssr: false,
+      basename: "/disaster-prevention-app-page",
       buildEnd(args) {
         if (!args.viteConfig.isProduction) return;
         const buildPath = args.viteConfig.build.outDir;
@@ -23,8 +25,7 @@ export default defineConfig({
         v3_fetcherPersist: true,
         v3_relativeSplatPath: true,
         v3_throwAbortReason: true,
-      },
-      ssr: false
+      }
     }),
     tsconfigPaths(),
   ],
