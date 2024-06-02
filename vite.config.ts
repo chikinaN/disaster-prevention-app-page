@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     remix({
       ssr: false,
-      basename: "/disaster-prevention-app-page",
+      basename: "/disaster-prevention-app-page/",
       buildEnd(args) {
         if (!args.viteConfig.isProduction) return;
         const buildPath = args.viteConfig.build.outDir;
