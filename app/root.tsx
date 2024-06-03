@@ -7,7 +7,12 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
+
 import styles from "./tailwind.css?url";
+import TabMenu from "src/components/layout/tabMenu";
+import Header from "src/components/layout/header";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,7 +22,14 @@ export const meta: MetaFunction = () => {
 };
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: styles }];
+  return [
+    {
+      rel: "icon",
+      href: "/favicon.png",
+      type: "image/png",
+    },
+    { rel: "stylesheet", href: styles }
+  ];
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -30,11 +42,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="m-0 p-0 bg-gray-200 font-normal">
-        <main className="relative w-1/2 h-screen mx-auto shadow-lg rounded-lg overflow-hidden">
-          {children}
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+          <main className="relative h-screen mx-auto shadow-lg rounded-lg overflow-hidden bg-white" style={{width: "55vh"}}>
+            <Header />
+            {children}
+            <TabMenu />
+          </main>
           <ScrollRestoration />
           <Scripts />
-        </main>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );
