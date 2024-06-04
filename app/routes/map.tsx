@@ -1,32 +1,7 @@
 export default function Map() {
 	return (
-		<div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-			<h1 className="text-3xl font-bold underline text-rose-900">Welcome to Remix</h1>
-			<ul>
-				<li>
-					<a
-						target="_blank"
-						href="https://remix.run/tutorials/blog"
-						rel="noreferrer"
-					>
-						15m Quickstart Blog Tutorial
-					</a>
-				</li>
-				<li>
-					<a
-						target="_blank"
-						href="https://remix.run/tutorials/jokes"
-						rel="noreferrer"
-					>
-						Deep Dive Jokes App Tutorial
-					</a>
-				</li>
-				<li>
-					<a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-						Remix Docs
-					</a>
-				</li>
-			</ul>
+		<div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }} className=" px-4">
+			<h3 className="text-2xl mt-4 font-bold underline">避難マップ</h3>
 		</div>
 	);
 }
