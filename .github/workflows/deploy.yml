@@ -35,6 +35,11 @@ jobs:
         run: |
           npm ci
           npm run build
+        env:
+          VITE_GOOGLE_CLIENT_ID: ${{ secrets.VITE_GOOGLE_CLIENT_ID }}
+          VITE_GOOGLE_CLIENT_SECRET: ${{ secrets.VITE_GOOGLE_CLIENT_SECRET }}
+          VITE_GOOGLE_REDIRECT: ${{ secrets.VITE_GOOGLE_REDIRECT }}
+          VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
